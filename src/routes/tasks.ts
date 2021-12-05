@@ -66,9 +66,31 @@ router.get('/all', getTasks);
 
 router.get('/count', countTasks);
 
-router.get('/:id', getTask);
-
+/**
+ * @swagger
+ * /tasks:
+ *   post:
+ *     tags: [Tasks]
+ *     summary: Creates a new task
+ *     requestBody:
+ *         required: true
+ *         content:
+ *           application/json:
+ *             schema:
+ *              $ref: '#/components/schemas/Task'
+ *     responses:
+ *         200:
+ *          description: Successfully created
+ *          content:
+ *            application/json:
+ *             schema:
+ *              $ref: '#/components/schemas/Task'
+ *         500:
+ *          description: Internal server error
+ */
 router.post('/', createTask);
+
+router.get('/:id', getTask);
 
 router.delete('/:id', deleteTask);
 
