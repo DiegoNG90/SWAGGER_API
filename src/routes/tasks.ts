@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getTasks } from '../controllers/tasks';
+import { getTasks, createTask } from '../controllers/tasks';
 
 const router = Router();
 
@@ -13,9 +13,7 @@ router.get('/:id', (req, res) => {
   res.send('TASKSS');
 });
 
-router.post('/', (req, res) => {
-  res.send('TASKSS');
-});
+router.post('/', createTask);
 
 router.delete('/:id', (req, res) => {
   res.send('TASKSS');

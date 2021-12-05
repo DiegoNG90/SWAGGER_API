@@ -5,9 +5,9 @@ import FileSync from 'lowdb/adapters/FileSync';
  * Este modulo puede usarse de manera síncrona y asíncrona
  */
 
-type Task = {
+export type Task = {
   id: string;
-  name: string;
+  title: string;
   description: string;
 };
 type Schema = {
