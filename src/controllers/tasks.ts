@@ -29,3 +29,16 @@ export const createTask: Handler = (req, res) => {
     });
   }
 };
+
+export const getTask: Handler = (req, res) => {
+  try {
+    const { id } = req.params;
+    const targetTask = getConnection().get('tasks').find({ id }).value();
+
+    return targetTask ? res.status(200).json(targetTask) : res.status(204).json({ message: 'Task not found' });
+  } catch (err) {
+    res.status(500).json({
+      message: 'Something went wrong'
+    });
+  }
+};
