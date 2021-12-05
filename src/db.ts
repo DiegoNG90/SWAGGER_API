@@ -1,18 +1,10 @@
 import lowdb, { LowdbSync } from 'lowdb';
 // Vamos a usar la manera SINCRONA
 import FileSync from 'lowdb/adapters/FileSync';
+import { Schema } from './types';
 /**
  * Este modulo puede usarse de manera síncrona y asíncrona
  */
-
-export type Task = {
-  id: string;
-  title: string;
-  description: string;
-};
-type Schema = {
-  tasks: Array<Task>;
-};
 
 let db: LowdbSync<Schema>;
 

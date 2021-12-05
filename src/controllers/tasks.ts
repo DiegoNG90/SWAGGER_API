@@ -1,7 +1,7 @@
 import { Handler } from 'express';
 import { getConnection } from '../db';
 import { nanoid } from 'nanoid';
-import { Task } from '../db';
+import { Task } from '../types';
 export const getTasks: Handler = (req, res) => {
   try {
     const tasks = getConnection().get('tasks').value();
