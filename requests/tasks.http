@@ -5,10 +5,26 @@ POST http://localhost:3000/api/tasks/
 Content-Type: application/json
 
 {
-  "title":"Tarea 3!",
-  "description":"Descripcion de la tarea 3"
+  "title":"Tarea 2!",
+  "description":"Descripcion de la tarea 2"
 }
 
 ###
-GET http://localhost:3000/api/tasks/fZrrnjA6JgaRZcbFG-tda
+GET http://localhost:3000/api/tasks/G7RDurZJALB7rGEdWBxU8
+Content-Type: application/json
+
+###
+DELETE http://localhost:3000/api/tasks/WlT0FonsuR4RG2SXLefRg
+Content-Type: application/json
+
+### updating task
+PUT http://localhost:3000/api/tasks/G7RDurZJALB7rGEdWBxU8
+Content-Type: application/json
+
+{
+ "description":"Actualizacion: esta es una actualizacion de la descripcion de la tarea 2"
+}
+
+### count/total tasks number
+GET http://localhost:3000/api/tasks/count
 Content-Type: application/json
