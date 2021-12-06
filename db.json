@@ -9,6 +9,11 @@
       "title": "Tarea 2!",
       "description": "Actualizacion: esta es una actualizacion de la descripcion de la tarea 2",
       "id": "G7RDurZJALB7rGEdWBxU8"
+    },
+    {
+      "title": "Task desde Swagger",
+      "description": "Something with Swagger",
+      "id": "XA7quHIxbh3kvOsTj52b7"
     }
   ]
 }
