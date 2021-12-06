@@ -11,21 +11,36 @@ const router = Router();
  *     properties:
  *        id:
  *          type: number
- *          description: id of the task
+ *          description: auto-generated id of the task
  *        title:
  *          type: string
  *          description: title of the task
  *        description:
- *            type: string
- *            description: description of the task
+ *           type: string
+ *           description: description of the task
  *     required:
- *        -title
- *        -description
+ *        - title
+ *        - description
  *     example:
  *        id: G7RDurZJALB7rGEdWBxU8
  *        title: "Task 1"
  *        description: "This is the first task"
- *
+ *    TaskNotFound:
+ *       type: object
+ *          properties:
+ *            msg:
+ *              type: string
+ *              description: Message for the not found task
+ *           example:
+ *            msg: Task not found
+ *  parameters:
+ *    taskId:
+ *      in: path
+ *      name: id
+ *      required: true
+ *      schema:
+ *        type: string
+ *      description: id of the task
  */
 
 /**
@@ -89,6 +104,32 @@ router.get('/count', countTasks);
  *          description: Internal server error
  */
 router.post('/', createTask);
+
+/**
+ * @swagger
+ * /tasks/{id}:
+ *  get:
+ *   summary: Returns a task by id
+ *   tags: [Tasks]
+ *   parameters:
+ *    - $ref: '#/components/parameters/taskId'
+ *   responses:
+ *    200:
+ *      description: Successfully retrieved
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Task'
+ *    204:
+ *      description: No content
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/TaskNotFound'
+ *
+ *    500:
+ *      description: Internal server error
+ */
 
 router.get('/:id', getTask);
 
