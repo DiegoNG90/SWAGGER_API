@@ -33,14 +33,6 @@ const router = Router();
  *              description: Message for the not found task
  *           example:
  *            msg: Task not found
- *  parameters:
- *    taskId:
- *      in: path
- *      name: id
- *      required: true
- *      schema:
- *        type: string
- *      description: id of the task
  */
 
 /**
@@ -112,7 +104,12 @@ router.post('/', createTask);
  *   summary: Returns a task by id
  *   tags: [Tasks]
  *   parameters:
- *    - $ref: '#/components/parameters/taskId'
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *        type: string
+ *       description: id of the task
  *   responses:
  *    200:
  *      description: Successfully retrieved
@@ -133,6 +130,35 @@ router.post('/', createTask);
 
 router.get('/:id', getTask);
 
+/**
+ * @swagger
+ * /tasks/{id}:
+ *   delete:
+ *    summary: Deletes a task by id
+ *    tags: [Tasks]
+ *    parameters:
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *        type: string
+ *       description: id of the task
+ *    responses:
+ *     200:
+ *        description: Successfully deleted
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Task'
+ *     204:
+ *      description: No content
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/TaskNotFound'
+ *     500:
+ *       description: Internal server error
+ */
 router.delete('/:id', deleteTask);
 
 router.put('/:id', updateTask);

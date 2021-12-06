@@ -50,7 +50,7 @@ export const deleteTask: Handler = (req, res) => {
     if (!targetTask) return res.status(204).json({ message: 'Task not found' });
 
     const deletedTask = getConnection().get('tasks').remove({ id }).write();
-    res.status(200).json(deletedTask);
+    res.status(200).json(deletedTask[0]);
   } catch (err) {
     res.status(500).json({
       message: 'Something went wrong'
