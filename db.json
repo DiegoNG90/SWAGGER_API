@@ -1,14 +1,14 @@
 {
   "tasks": [
     {
-      "title": "Tarea 1!",
-      "description": "Descripcion de la tarea 1",
-      "id": "gx3C91qh6ltyzvm4XGjn3"
+      "title": "Task 2",
+      "description": "as it was before",
+      "id": "G7RDurZJALB7rGEdWBxU8"
     },
     {
-      "title": "Tarea 2!",
-      "description": "Actualizacion: esta es una actualizacion de la descripcion de la tarea 2",
-      "id": "G7RDurZJALB7rGEdWBxU8"
+      "title": "Task 3",
+      "description": "Probando el update desde Swagger!",
+      "id": "ovCBILDmcwULtfr7NzHsD"
     }
   ]
 }
