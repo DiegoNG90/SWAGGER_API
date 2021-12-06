@@ -33,6 +33,14 @@ const router = Router();
  *           description: Message for the not found task
  *       example:
  *          msg: Task not found
+ *  parameters:
+ *   taskId:
+ *     in: path
+ *     name: id
+ *     required: true
+ *     schema:
+ *      type: string
+ *     description: id of the task
  */
 
 /**
@@ -104,12 +112,7 @@ router.post('/', createTask);
  *   summary: Returns a task by id
  *   tags: [Tasks]
  *   parameters:
- *     - in: path
- *       name: id
- *       required: true
- *       schema:
- *        type: string
- *       description: id of the task
+ *    - $ref: '#/components/parameters/taskId'
  *   responses:
  *    200:
  *      description: Successfully retrieved
@@ -137,12 +140,7 @@ router.get('/:id', getTask);
  *    summary: Deletes a task by id
  *    tags: [Tasks]
  *    parameters:
- *     - in: path
- *       name: id
- *       required: true
- *       schema:
- *        type: string
- *       description: id of the task
+ *     - $ref: '#/components/parameters/taskId'
  *    responses:
  *     200:
  *        description: Successfully deleted
@@ -160,6 +158,37 @@ router.get('/:id', getTask);
  *       description: Internal server error
  */
 router.delete('/:id', deleteTask);
+
+/**
+ * @swagger
+ * /tasks/{id}:
+ *  put:
+ *   summary: Updates a task by id
+ *   tags: [Tasks]
+ *   parameters:
+ *    - $ref: '#/components/parameters/taskId'
+ *   requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Task'
+ *   responses:
+ *      200:
+ *        description: Successfully updated
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Task'
+ *      204:
+ *        description: No content
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/TaskNotFound'
+ *      500:
+ *        description: Internal server error
+ */
 
 router.put('/:id', updateTask);
 
