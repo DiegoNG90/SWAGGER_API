@@ -10,7 +10,7 @@ const router = Router();
  *     type: object
  *     properties:
  *        id:
- *          type: number
+ *          type: integer
  *          description: auto-generated id of the task
  *        title:
  *          type: string
@@ -27,12 +27,12 @@ const router = Router();
  *        description: "This is the first task"
  *    TaskNotFound:
  *       type: object
- *          properties:
- *            msg:
- *              type: string
- *              description: Message for the not found task
- *           example:
- *            msg: Task not found
+ *       properties:
+ *         msg:
+ *           type: string
+ *           description: Message for the not found task
+ *       example:
+ *          msg: Task not found
  */
 
 /**
